@@ -19,7 +19,7 @@ import model.services.DepartmentService;
 
 public class DepartmentListController implements Initializable {
 	
-	private DepartmentService service;
+	private DepartmentService service; // dependencia com o DepartmentService
 	
 	@FXML
 	private TableView<Department> tableViewDepartment;
@@ -55,7 +55,7 @@ public class DepartmentListController implements Initializable {
 		tableColumnId.setCellValueFactory(new PropertyValueFactory<>("Id")); // comando pra iniciar o comportamento das colunas da tabela;
 		tableColumnName.setCellValueFactory(new PropertyValueFactory<>("Name")); 
 		
-		Stage stage = (Stage)Main.getMainScene().getWindow();
+		Stage stage = (Stage) Main.getMainScene().getWindow();
 		tableViewDepartment.prefHeightProperty().bind(stage.heightProperty()); // para fazer o tableView acompanhar a altura da Janela
 	}
 	
@@ -63,7 +63,7 @@ public class DepartmentListController implements Initializable {
 		if (service == null) { // se o programador esquecer de injetar esse servico, entao lanço uma illegalStateExcepiton
 			throw new IllegalStateException("Service was null");
 		}
-		List<Department> list = service.findAll();
+		List<Department> list = service.findAll(); // aqui recupera os departamentos la do DepartmentService (que estao MOCKADOS - 'ficticios')
 		obsList = FXCollections.observableArrayList(list); // instanciei o obsList pegando os dados da list
 		tableViewDepartment.setItems(obsList); // aqui carrego os itens da tableView e mostro na tela.
 	}

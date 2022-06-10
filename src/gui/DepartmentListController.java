@@ -86,7 +86,7 @@ public class DepartmentListController implements Initializable {
 			Stage dialogStage = new Stage();
 			dialogStage.setTitle("Enter Department data:"); // para configurar o titulo da janela;
 			dialogStage.setScene(new Scene(pane));
-			dialogStage.setResizable(false); // para a janela ser ou nao redimencionada
+			dialogStage.setResizable(false); // para a janela ser ou nao redimensionada
 			dialogStage.initOwner(parentStage); // o stage pai dessa janela;
 			dialogStage.initModality(Modality.WINDOW_MODAL); // aqui diz se a janela vai ser modal ou se terá outro comportamento;
 			dialogStage.showAndWait();
